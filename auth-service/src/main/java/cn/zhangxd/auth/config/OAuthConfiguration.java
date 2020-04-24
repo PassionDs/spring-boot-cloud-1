@@ -18,6 +18,10 @@ import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
 
 import javax.sql.DataSource;
 
+/**
+ * @author di.mao
+ * @date 2020-04-24
+ */
 @Configuration
 @EnableAuthorizationServer
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))

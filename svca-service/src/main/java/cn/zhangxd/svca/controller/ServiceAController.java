@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.security.Principal;
 
+/**
+ * @author di.mao
+ * @date 2020-04-24
+ */
 @RefreshScope
 @RestController
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))

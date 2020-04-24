@@ -9,6 +9,10 @@ import org.springframework.cloud.netflix.eureka.EurekaDiscoveryClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * @author di.mao
+ * @date 2020-04-24
+ */
 @RefreshScope
 @RestController
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
@@ -22,6 +26,7 @@ public class ServiceBController {
     @GetMapping(value = "/")
     public String printServiceB() {
         ServiceInstance serviceInstance = discoveryClient.getLocalServiceInstance();
-        return serviceInstance.getServiceId() + " (" + serviceInstance.getHost() + ":" + serviceInstance.getPort() + ")" + "===>Say " + msg;
+        return serviceInstance.getServiceId() + " (" + serviceInstance.getHost() + ":" + serviceInstance.getPort() +
+                ")" + "===>Say " + msg;
     }
 }

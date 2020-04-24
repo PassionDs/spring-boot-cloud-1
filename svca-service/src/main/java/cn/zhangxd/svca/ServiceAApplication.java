@@ -8,6 +8,12 @@ import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableOAuth2Client;
 
 
+/**
+ * 服务A启动类
+ *
+ * @author di.mao
+ * @date 2020-04-24
+ */
 @EnableDiscoveryClient
 @EnableFeignClients
 @SpringBootApplication

@@ -6,6 +6,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.security.Principal;
 
+/**
+ * @author di.mao
+ * @date 2020-04-24
+ */
 @RestController
 @RequestMapping("/")
 public class UserController {

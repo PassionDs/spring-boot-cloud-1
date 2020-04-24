@@ -1,6 +1,7 @@
 package cn.zhangxd.svca.controller;
 
 import cn.zhangxd.svca.client.ServiceBClient;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
@@ -13,15 +14,15 @@ import java.security.Principal;
 
 @RefreshScope
 @RestController
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class ServiceAController {
 
     @Value("${name:unknown}")
     private String name;
 
-    @Autowired
-    EurekaDiscoveryClient discoveryClient;
-    @Autowired
-    private ServiceBClient serviceBClient;
+    private final EurekaDiscoveryClient discoveryClient;
+
+    private final ServiceBClient serviceBClient;
 
     @GetMapping(value = "/")
     public String printServiceA() {

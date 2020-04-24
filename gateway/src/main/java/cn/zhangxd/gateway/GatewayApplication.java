@@ -5,6 +5,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 
+/**
+ * 路由网关 Zuul
+ *
+ * @author di.mao
+ * @date 2020-04-24
+ */
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableZuulProxy

@@ -1,5 +1,6 @@
 package cn.zhangxd.auth.config;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,13 +20,12 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableAuthorizationServer
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class OAuthConfiguration extends AuthorizationServerConfigurerAdapter {
 
-    @Autowired
-    private AuthenticationManager auth;
+    private final AuthenticationManager auth;
 
-    @Autowired
-    private DataSource dataSource;
+    private final DataSource dataSource;
 
     private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
@@ -35,14 +35,12 @@ public class OAuthConfiguration extends AuthorizationServerConfigurerAdapter {
     }
 
     @Override
-    public void configure(AuthorizationServerSecurityConfigurer security)
-            throws Exception {
+    public void configure(AuthorizationServerSecurityConfigurer security) {
         security.passwordEncoder(passwordEncoder);
     }
 
     @Override
-    public void configure(AuthorizationServerEndpointsConfigurer endpoints)
-            throws Exception {
+    public void configure(AuthorizationServerEndpointsConfigurer endpoints) {
         endpoints
                 .authenticationManager(auth)
                 .tokenStore(tokenStore())
@@ -59,8 +57,10 @@ public class OAuthConfiguration extends AuthorizationServerConfigurerAdapter {
                 .secret("secret")
                 .authorizedGrantTypes("password", "refresh_token")
                 .scopes("read", "write")
-                .accessTokenValiditySeconds(3600) // 1 hour
-                .refreshTokenValiditySeconds(2592000) // 30 days
+                // 1 hour
+                .accessTokenValiditySeconds(3600)
+                // 30 days
+                .refreshTokenValiditySeconds(2592000)
                 .and()
                 .withClient("svca-service")
                 .secret("password")
@@ -77,10 +77,10 @@ public class OAuthConfiguration extends AuthorizationServerConfigurerAdapter {
 
     @Configuration
     @Order(-20)
+    @RequiredArgsConstructor(onConstructor = @__(@Autowired))
     protected static class AuthenticationManagerConfiguration extends GlobalAuthenticationConfigurerAdapter {
 
-        @Autowired
-        private DataSource dataSource;
+        private final DataSource dataSource;
 
         @Override
         public void init(AuthenticationManagerBuilder auth) throws Exception {

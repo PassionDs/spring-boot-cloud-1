@@ -9,6 +9,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
+/**
+ * 监控平台  Spring-Boot-Admin 服务端
+ *
+ * @author di.mao
+ * @date 2020-04-24
+ */
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableAdminServer

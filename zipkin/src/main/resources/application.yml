@@ -2,7 +2,7 @@ spring:
   application:
     name: zipkin
   rabbitmq:
-    host: rabbitmq
+    host: 172.16.30.241
 
 server:
   port: 9411

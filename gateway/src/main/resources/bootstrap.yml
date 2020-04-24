@@ -3,7 +3,7 @@ spring:
     name: gateway
   cloud:
     config:
-      uri: http://config:8888
+      uri: http://172.16.30.63:8888
       fail-fast: true
       username: user
       password: ${CONFIG_SERVER_PASSWORD:password}

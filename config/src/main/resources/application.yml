@@ -3,24 +3,24 @@ server:
 
 eureka:
   instance:
-    hostname: registry
+    hostname: 172.16.30.63
     prefer-ip-address: true
     metadata-map:
       user.name: ${security.user.name}
       user.password: ${security.user.password}
   client:
     service-url:
-      defaultZone: http://user:${REGISTRY_SERVER_PASSWORD:password}@registry:8761/eureka/
+      defaultZone: http://user:${REGISTRY_SERVER_PASSWORD:password}@172.16.30.63:8761/eureka/
 
 spring:
   cloud:
     config:
       server:
         git:
-          uri: https://github.com/zhangxd1989/spring-boot-cloud
+          uri: https://github.com/PassionDs/spring-boot-cloud-1
           search-paths: config-repo
   rabbitmq:
-    host: rabbitmq
+    host: 172.16.30.241
 
 security:
   user:

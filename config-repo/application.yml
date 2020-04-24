@@ -1,10 +1,10 @@
 eureka:
   instance:
-    hostname: registry
+    hostname: 172.16.30.63
     prefer-ip-address: true
   client:
     service-url:
-      defaultZone: http://user:${REGISTRY_SERVER_PASSWORD:password}@registry:8761/eureka/
+      defaultZone: http://user:${REGISTRY_SERVER_PASSWORD:password}@172.16.30.63:8761/eureka/
 
 hystrix:
   command:
@@ -20,7 +20,7 @@ ribbon:
 
 spring:
   rabbitmq:
-    host: rabbitmq
+    host: 172.16.30.241
   sleuth:
     sampler:
       percentage: 1

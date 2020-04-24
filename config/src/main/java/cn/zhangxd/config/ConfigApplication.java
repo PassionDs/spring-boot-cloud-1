@@ -5,6 +5,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.config.server.EnableConfigServer;
 
+/**
+ * 配置中心服务端 config
+ *
+ * @author di.mao
+ * @date 2020-04-24
+ */
 @EnableDiscoveryClient
 @EnableConfigServer
 @SpringBootApplication

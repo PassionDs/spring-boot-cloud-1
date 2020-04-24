@@ -11,25 +11,25 @@ turbine:
 
 eureka:
   instance:
-    hostname: registry
+    hostname: 172.16.30.63
     prefer-ip-address: true
     metadata-map:
       user.name: ${security.user.name}
       user.password: ${security.user.password}
   client:
     service-url:
-      defaultZone: http://user:${REGISTRY_SERVER_PASSWORD:password}@registry:8761/eureka/
+      defaultZone: http://user:${REGISTRY_SERVER_PASSWORD:password}@172.16.30.63:8761/eureka/
 
 spring:
   rabbitmq:
-    host: rabbitmq
+    host: 172.16.30.241
   boot:
     admin:
       routes:
         endpoints: env,metrics,trace,dump,jolokia,info,configprops,trace,logfile,refresh,flyway,liquibase,heapdump,loggers,auditevents,hystrix.stream
       turbine:
         clusters: default
-        location: http://monitor:${turbine.stream.port}
+        location: http://172.16.30.63:${turbine.stream.port}
 
 security:
   user:

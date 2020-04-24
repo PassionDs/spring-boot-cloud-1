@@ -1,5 +1,6 @@
 package cn.zhangxd.svcb.controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
@@ -10,10 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RefreshScope
 @RestController
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class ServiceBController {
 
-    @Autowired
-    EurekaDiscoveryClient discoveryClient;
+    private final EurekaDiscoveryClient discoveryClient;
 
     @Value("${msg:unknown}")
     private String msg;
